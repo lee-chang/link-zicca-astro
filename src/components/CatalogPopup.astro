@@ -1,0 +1,56 @@
+---
+// Componente de popup para catálogos por talla
+---
+
+<div id="popup-overlay" class="popup-overlay">
+  <div class="popup">
+    <div class="button-close" id="close-popup"></div>
+    <img src="/img/zicca-logo.png" alt="Zicca Logo">
+    <h2>Catálogos</h2>
+    <label for="dwlctg">Filtra que catálogo quieres</label>
+    <select id="dwlctg" name="dwlctg">
+      <option hidden selected>Elige tu talla</option>
+      <option value="/catalogos/Talla35-Zicca.pdf">Talla 35</option>
+      <option value="/catalogos/Talla36-Zicca.pdf">Talla 36</option>
+      <option value="/catalogos/Talla37-Zicca.pdf">Talla 37</option>
+      <option value="/catalogos/Talla38-Zicca.pdf">Talla 38</option>
+      <option value="/catalogos/Talla39-Zicca.pdf">Talla 39</option>
+      <option value="/catalogos/TodasTallas-Zicaa.pdf">Todas las tallas</option>
+    </select>
+    <button id="download-catalog">Descargar</button>
+  </div>
+</div>
+
+<script>
+  // Script para manejar el popup
+  document.addEventListener('DOMContentLoaded', () => {
+    const closeBtn = document.getElementById('close-popup');
+    const popupOverlay = document.getElementById('popup-overlay');
+    const downloadBtn = document.getElementById('download-catalog');
+    const catalogSelect = document.getElementById('dwlctg') as HTMLSelectElement;
+    
+    if (closeBtn && popupOverlay) {
+      closeBtn.addEventListener('click', () => {
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restaurar scroll
+      });
+      
+      // Cerrar al hacer clic en el overlay
+      popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+          popupOverlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+    
+    if (downloadBtn && catalogSelect) {
+      downloadBtn.addEventListener('click', () => {
+        const selectedValue = catalogSelect.value;
+        if (selectedValue && selectedValue !== "Elige tu talla") {
+          window.location.href = selectedValue;
+        }
+      });
+    }
+  });
+</script>

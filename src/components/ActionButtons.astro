@@ -1,0 +1,47 @@
+---
+// Componente de botones de acción para Zicca
+---
+
+<div class="btn-container">
+  <a href="https://zicca.pe/Productos/ListaProductosTiendaVirtual" class="btn shake">
+    Catálogo Web
+  </a>
+  
+  <a href="https://api.whatsapp.com/send?phone=+51948026162&text=Hola%20%F0%9F%91%8B,%20me%20encantar%C3%ADa%20tener%20m%C3%A1s%20informaci%C3%B3n%20de%20zicca.pe" class="btn">
+    Whatsapp
+  </a>
+  
+  <a href="https://m.me/zicca.pe" class="btn">
+    Messenger
+  </a>
+  
+  <!-- <button id="catalog-btn" class="btn">
+    Catálogos por Talla
+  </button> -->
+</div>
+
+<script>
+  // Script para manejar el botón de catálogo
+  document.addEventListener('DOMContentLoaded', () => {
+    const catalogBtn = document.getElementById('catalog-btn');
+    const popupOverlay = document.getElementById('popup-overlay');
+    
+    if (catalogBtn && popupOverlay) {
+      catalogBtn.addEventListener('click', () => {
+        popupOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevenir scroll
+      });
+    }
+  });
+</script>
+
+<style>
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+</style>

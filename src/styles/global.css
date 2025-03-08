@@ -1,0 +1,281 @@
+/* Variables globales */
+:root {
+  --primary-text: #fff;
+  --secondary-text: #000000;
+  --popup-bg: #fff;
+  --button-bg: rgba(17, 17, 17, 0.76);
+  --button-hover-bg: rgba(17, 17, 17, 0.9);
+  --popup-button-bg: #6fd649;
+  --border-radius: 25px;
+  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  color: var(--primary-text);
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Estilos de tipografía */
+h1, h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+p {
+  color: var(--secondary-text);
+  padding-top: 30px;
+  font-size: large;
+}
+
+/* Estilos de contenedor principal */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos del logo */
+.logo-container {
+  padding-top: 60px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.logo-container img {
+  max-width: 227px;
+  height: auto;
+  will-change: transform;
+}
+
+/* Estilos de botones principales */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 70%;
+  padding: 12px 0;
+  margin-bottom: 20px;
+  font-weight: 750;
+  background-color: var(--button-bg);
+  color: var(--primary-text);
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, 
+              box-shadow 0.2s ease, 
+              background-color 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: var(--button-hover-bg);
+}
+
+/* Animación de shake optimizada */
+.shake {
+  animation: shake-animation 4.72s ease infinite;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+@keyframes shake-animation {
+  0%, 12%, 100% { transform: translate(0, 0); }
+  1.78571% { transform: translate(5px, 0); }
+  3.57143% { transform: translate(0, 0); }
+  5.35714% { transform: translate(5px, 0); }
+  7.14286% { transform: translate(0, 0); }
+  8.92857% { transform: translate(5px, 0); }
+  10.71429% { transform: translate(0, 0); }
+}
+
+/* Estilos de popup */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  backdrop-filter: blur(3px);
+}
+
+.popup {
+  width: 20rem;
+  background-color: var(--popup-bg);
+  border-radius: var(--border-radius);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 30px;
+  color: var(--secondary-text);
+  z-index: 100;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+}
+
+.popup img {
+  width: 100px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.popup h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 20px 0 10px;
+}
+
+.popup select {
+  width: 80%;
+  padding: 8px;
+  margin-top: 15px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.popup button {
+  width: 80%;
+  margin-top: 20px;
+  padding: 10px 0;
+  background: var(--popup-button-bg);
+  color: var(--secondary-text);
+  border: 0;
+  outline: none;
+  font-size: 17px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.popup button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de cerrar */
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.button-close:before, .button-close:after {
+  background-color: black;
+  content: '';
+  height: 20px;
+  width: 2px;
+  position: absolute;
+  left: 14px;
+  top: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.button-close:before {
+  transform: rotate(45deg);
+}
+
+.button-close:after {
+  transform: rotate(-45deg);
+}
+
+.button-close:hover:before, .button-close:hover:after {
+  background-color: #555;
+}
+
+/* Enlaces sociales */
+.social-link {
+  width: 100%;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.icon-social {
+  width: 35px; 
+  display: block;
+  margin: 0 12px 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon-social:hover {
+  transform: scale(1.2);
+}
+
+.icon-social svg {
+  fill: var(--primary-text);
+  width: 100%;
+  height: auto;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .btn {
+    width: 80%;
+  }
+  
+  .social-link {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-height: 600px) {
+  .social-link {
+    position: relative;
+    margin-top: 40px;
+  }
+  
+  body {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+/* Mejora de rendimiento con contenido visible */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+  
+  .shake {
+    animation: none;
+  }
+}

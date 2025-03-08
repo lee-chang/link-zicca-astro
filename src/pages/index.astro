@@ -1,0 +1,59 @@
+---
+// Importación de componentes
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import ActionButtons from "../components/ActionButtons.astro";
+import CatalogPopup from "../components/CatalogPopup.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+---
+
+<MainLayout title="Zicca - Identidad Femenina">
+  <div class="container">
+    <!-- Logo y encabezado -->
+    <Header />
+
+    <!-- Botones de acción -->
+    <ActionButtons />
+
+    <!-- Popup de catálogos -->
+    <!-- <CatalogPopup /> -->
+
+    <!-- Enlaces sociales -->
+    <SocialLinks />
+  </div>
+</MainLayout>
+
+<style>
+  .container {
+    width: 100%;
+    max-width: calc(100vw- 50em); 
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+
+    /* Fondo degradado */
+    background-image: url("/img/qoya-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Astro optimiza la animación con will-change para mejor rendimiento */
+    will-change: background-position;
+    animation: GradientMove 15s ease infinite;
+  }
+
+  /* Animación de fondo optimizada */
+  @keyframes GradientMove {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+</style>
