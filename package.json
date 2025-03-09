@@ -10,7 +10,6 @@
     "start:production": "astro build && astro preview"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.2.3",
     "astro": "^5.4.2"
   }
 }
